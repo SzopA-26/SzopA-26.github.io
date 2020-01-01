@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../bootstrap-4.4.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="specificity-style.css">
+    <title>CSS Specificity</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#"><img src="img/icon.ico" width="30" height="30" class="d-inline-block align-top" alt=""> SzopA-26 |</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="../Lab01/index.html">My Best Friends</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="../Lab02/zengarden.html">Zengarden</a>
+				</li>
+				<li class="nav-item active">
+					<a class="nav-link" href="../Lab02/specificity.html">Specificity<span class="sr-only">(current)</span></a>
+				</li>
+			</ul>
+        </div>
+    </nav>
+    
+    <h1>CSS Specificity</h1>
+
+    <h3>What is Specificity ?</h3>
+    <p>Specificity คือ ค่าเฉพาะเจาะจง หากมี CSS Rule ที่ขัดแย้งกันตั้งแต่สองขึ้นไปชี้ไปที่ Element เดียวกัน </p>
+    <p>Browser จะคำนวณหาว่า CSS Rule ไหนมีค่า Specificity มากกว่าและเลือกไปแสดงผลกับ Element</p>
+
+    <div>
+
+        <h3>ค่า Specificity สามารถแบ่งตาม Selector ได้ดังนี้</h3>
+        <p>
+            <strong>Inline styles</strong>
+            <pre><code>&lt;p style="color: red;"&gt;Sample text here...&lt;/p&gt;</code></pre>
+        </p>
+    </div>
+
+
+    <button style="color: red;">Click Me</button>
+    
+</body>
+</html>
