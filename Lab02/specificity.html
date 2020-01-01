@@ -7,6 +7,25 @@
     <link rel="stylesheet" href="../bootstrap-4.4.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="specificity-style.css">
     <title>CSS Specificity</title>
+    <style>
+        h3 {
+            margin: 0;
+            padding-bottom: 2%;
+        }
+        body {
+            margin: 0 0 1%;
+        }
+        pre {
+            margin-left: 5%;
+        }
+        h1 {
+            margin-bottom: 3%;
+        }
+        h3 + div {
+            margin-left: 5%;
+            margin-bottom: 3%;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -28,24 +47,78 @@
 			</ul>
         </div>
     </nav>
-    
-    <h1>CSS Specificity</h1>
 
-    <h3>What is Specificity ?</h3>
-    <p>Specificity คือ ค่าเฉพาะเจาะจง หากมี CSS Rule ที่ขัดแย้งกันตั้งแต่สองขึ้นไปชี้ไปที่ Element เดียวกัน </p>
-    <p>Browser จะคำนวณหาว่า CSS Rule ไหนมีค่า Specificity มากกว่าและเลือกไปแสดงผลกับ Element</p>
+    <div class="container">
+        <div class="row">
+            <div class="col">
 
-    <div>
+            </div>
+            <div class="col-10">
+                
+                <header>
+                    <h1 class="display-1">CSS Specificity</h1>
+                </header>
 
-        <h3>ค่า Specificity สามารถแบ่งตาม Selector ได้ดังนี้</h3>
-        <p>
-            <strong>Inline styles</strong>
-            <pre><code>&lt;p style="color: red;"&gt;Sample text here...&lt;/p&gt;</code></pre>
-        </p>
+                <h3>Specificity คืออะไร ?</h3>
+                <div>
+                Specificity คือ ค่าเฉพาะเจาะจง หากมี CSS Rule ที่ขัดแย้งกันตั้งแต่สองขึ้นไปชี้ไปที่ Element เดียวกัน
+                Browser จะคำนวณหาว่า CSS Rule ไหนมีค่า Specificity มากกว่าและเลือกไปแสดงผลกับ Element
+                </div>
+
+                <hr>
+
+                <h3>ค่า Specificity สามารถจำแนกได้จาก Selector</h3>
+                <div>
+                    <li>
+                        1000 - <strong>Inline styles</strong>
+                        <pre>Example: <code>&lt;p style="color: red;"&gt;Sample text here...&lt;/p&gt;</code></pre>
+                    </li>
+                    <li>
+                        100 - <strong>IDs</strong>
+                        <pre>Example: <code>#navbarNav</code></pre> 
+                    </li>
+                    <li>
+                        10 - <strong>Classes, attributes and pseudo-classes</strong>
+                        <pre>Example: <code>.classes, [attributes], :hover, :focus </code></pre>
+                    </li>
+                    <li>
+                        1 - <strong>Elements and pseudo-elements</strong>
+                        <pre>Example: <code>h1, div, :before, :after</code></pre>
+                    </li>
+                </div>
+                
+
+                
+                  
+                  
+
+                <hr>
+
+                <h3>วิธีคำนวณ Specificity</h3>
+                <div>
+                    <p>เริ่มจาก 0 แล้วบวกตามค่า Specificity ของแต่ละ Seletor ข้างต้น เช่น</p>
+
+                    <div style="background-color: #e6e6e6; padding: 10px 0 5px;">
+                    <pre><code>A: h1</code></pre>
+                    <pre><code>B: #content h1</code></pre>
+                    <pre><code>C: &lt;div id="content"&gt;&lt;h1 style="color: #ffffff">Heading&lt;h1&gt;&lt;div&gt;</code></pre>
+                    </div>
+
+                    <br>
+                        
+                    <p>ค่า Specificity ของ A คือ 1 (หนึ่ง Element)</p>
+                    <p>ค่า Specificity ของ B คือ 101 (หนึ่ง ID และหนึ่ง Element)</p>
+                    <p>ค่า Specificity ของ C คือ 1000 (Inline styling)</p>
+                    <p>1 &lt; 101 &lt; 1000 เนื่องจากค่า Specificity ของ C สูงที่สุด C จึงถูกเลือกและนำไปแสดงผล</p>
+                </div>
+
+            </div>
+            <div class="col">
+
+            </div>
+        </div>
     </div>
 
-
-    <button style="color: red;">Click Me</button>
     
 </body>
 </html>
