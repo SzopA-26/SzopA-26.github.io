@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../bootstrap-4.4.1-dist/css/bootstrap.min.css">
-    <title>Party Time!</title>
-    <link href="https://fonts.googleapis.com/css?family=Kalam:700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../fontawesome-free-5.12.0-web/css/all.css">
     <link rel="stylesheet" href="./style.css">
+    <title>Party Time!</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -34,10 +34,10 @@
       </nav>
 
     
-
+    <div id="content">
     <center>
         <h1 class="display-1" id="header">
-            <img id="icon-party" src="./img/party-icon-1.png" alt="">
+            <!-- <img id="icon-party" src="./img/party-icon-1.png" alt=""> -->
             PARTY TIME !
         </h1>
     </center>
@@ -46,30 +46,40 @@
         <div class="row">
             <div class="col">
 
-                    <div class="form-group">
-                      <label>Register</label>
-                      <input type="text" class="form-control" id="name-input">
-                      <small id="descrip" class="form-text text-muted">
-                          กรอกชื่อเพื่อลงทะเบียนเข้าร่วมงาน
-                        </small>
-                    </div>
-                    <div class="form-group form-check">
-                      <input type="checkbox" class="form-check-input" id="gift-check">
-                      <label class="form-check-label" onclick="labelCheck()" >นำของขวัญมาจับฉลาก</label>
-                    </div>
-                    <button type="button" class="btn btn-primary" id="addBtn" onclick="addBtnOnClicked()">ลงทะเบียนเข้าร่วมงาน</button>
+                <h2>
+                    ลงทะเบียน
+                    <img id="icon-party" src="./img/party-icon-1.png" alt="">
+                </h2>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="name-input" >
+                    <small id="descrip-name" class="form-text text-muted">
+                      กรอกชื่อเพื่อลงทะเบียนเข้าร่วมงาน
+                    </small>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="gift-check">
+                    <label class="form-check-label" onclick="labelCheck()" id="check-label">นำของขวัญมาจับฉลาก</label>
+                    <small id="descrip-gift" class="form-text text-muted">
+                        หากไม่ได้นำของขวัญมาจับฉลาก จะไม่มีสิทธิ ในการสุ่มของขวัญ
+                    </small>
+                </div>
+                <button type="button" class="btn btn-primary" id="addBtn" onclick="addBtnOnClicked()">
+                    ลงทะเบียนเข้าร่วมงาน
+                </button>
 
             </div>
-            <div class="col">
-                <!-- Custom column padding -->
+            <div class="col text-center" id="name-list">
+                <h2 id="list-header">ผู้เข้าร่วมงาน(0)</h2>
             </div>
-            <div class="col">
-
+            <div class="col text-center" id="random-list">
+                <button type="button" class="btn btn-primary" id="ranBtn" onclick="ranBtnOnClicked()">
+                    เริ่มสุ่มของขวัญ
+                </button>
+                
             </div>
         </div>
     </div>
-
-    
+    </div>
 
     <script src="./script.js"></script>
     
