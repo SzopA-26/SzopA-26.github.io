@@ -8,16 +8,6 @@ setInterval( function() {
     imgChange *= -1;
 }, 350 );
 
-var hColor = 1;
-setInterval( function() {
-    if (hColor > 0) {
-        document.getElementById("header").style.color = "#fff";
-    } else {
-        document.getElementById("header").style.color = "#61a335";
-    }
-    hColor *= -1;
-}, 250 );
-
 function labelCheck() {
     let giftcheck = document.getElementById("gift-check");
     giftcheck.checked = !giftcheck.checked;
@@ -31,8 +21,9 @@ function addBtnOnClicked() {
     
     if (name == "") {
         window.alert("Name is empty.")
-    }
-    else if (Guests.indexOf(name) != -1) {
+    } else if (!name.match(/^[A-Za-zก-๏]*$/)) {
+        window.alert("Name is invalid.")
+    } else if (Guests.indexOf(name) != -1) {
         window.alert("This name is already exist.")
     } else {
         Guests.push(name);
@@ -57,8 +48,6 @@ function addBtnOnClicked() {
 }
 
 function ranBtnOnClicked() {
-    if (Guests.length < 2)
-        return;
     let ranGuests = [];
     let NotGive = [];
     for (let i=0; i<Guests.length; i++) {
@@ -67,10 +56,11 @@ function ranBtnOnClicked() {
             NotGive.push(Guests[i]);
         }
     }
+    if (ranGuests.length < 2)
+        return;
 
-    document.getElementById("random-list").innerHTML = 
-    '<button type="button" class="btn btn-primary" id="ranBtn" onclick="ranBtnOnClicked()">เริ่มสุ่มของขวัญ</button>';
-    
+    document.getElementById("random-list").innerHTML = "";
+        
     for (let i=0; i<ranGuests.length; i++) {
         let guestGiven;
         do {
@@ -103,3 +93,4 @@ name_input.addEventListener("keyup", function(event) {
         document.getElementById("addBtn").click();
     }
 });
+
